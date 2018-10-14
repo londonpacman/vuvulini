@@ -32,27 +32,29 @@ function calc() {
   for (var it of items) {
     it.setMap(null);
   }
-  n=3;
+  var n=3;
   var s = document.getElementById('canUse').value.split('');
   var digs = s.map(num => parseInt(num));
   var sw = rect.bounds.getSouthWest();
   var ne = rect.bounds.getNorthEast();
   function gen(i, j, ni, nj) {
-    if (i === 3) {
+    if (i === n) {
       if (j == 0) {
         var ri = ni*0.1;
         if (sw.lng() > ri || ri > ne.lng()) {
           return;
         }
       }
-      if (j == 3) {
+      if (j == n) {
         var ri = ni*0.1;
         var rj = 51 + nj*0.1;
         if (sw.lat() <= rj && rj <= ne.lat()) {
           var item = new google.maps.Marker({
             position: {lat: rj, lng: ri},
             map: map,
+            title: '' + rj + ' ' + ri,
           })
+          console.log(rj, ri)
         }
         return;
       }
