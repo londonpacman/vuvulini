@@ -32,7 +32,7 @@ function calc() {
   for (var it of items) {
     it.setMap(null);
   }
-  var n=3;
+  var n=4;
   var s = document.getElementById('canUse').value.split('');
   var digs = s.map(num => parseInt(num));
   var sw = rect.bounds.getSouthWest();
